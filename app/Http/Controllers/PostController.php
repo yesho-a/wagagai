@@ -23,10 +23,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        //dd($posts);
-      
-        //return $posts->user->name;
-        return view('posts.index')->with('posts',$posts);
+       return view('posts.index')->with('posts',$posts);
     }
 
     /**
@@ -65,9 +62,10 @@ class PostController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+       return view('posts.show')->with('post',$post);
     }
 
     /**
@@ -76,9 +74,11 @@ class PostController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(post $post)
+    public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit')->with('post',$post);
+
     }
 
     /**
@@ -90,7 +90,14 @@ class PostController extends Controller
      */
     public function update(Request $request, post $post)
     {
-        //
+        $this->validate($request,['post_title'=>'required','post_body'=>'required'
+    ]);
+
+    $post = Post::find($id);
+    $post->post_title=$request->input('post_title');
+    $post->post_body=$request->input('post_body');
+    $post->save();
+    return redirect('/')->with('success','Post Updated');
     }
 
     /**

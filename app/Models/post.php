@@ -20,6 +20,12 @@ class post extends Model
 
     }
 
+    public function getXYExcerpt(){
+       $x = $this->post_body;
+      $y = substr($x, 0, 100); 
+       return $y.'....';
+    }
+     
 
 
 }
