@@ -88,7 +88,7 @@ class PostController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, post $post)
+    public function update(Request $request,$id)
     {
         $this->validate($request,['post_title'=>'required','post_body'=>'required'
     ]);
@@ -97,7 +97,7 @@ class PostController extends Controller
     $post->post_title=$request->input('post_title');
     $post->post_body=$request->input('post_body');
     $post->save();
-    return redirect('/')->with('success','Post Updated');
+    return redirect('/post')->with('success','Post Updated');
     }
 
     /**
@@ -108,6 +108,9 @@ class PostController extends Controller
      */
     public function destroy(post $post)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/post')->with('success','Post Removed');
+
     }
 }
