@@ -45,10 +45,23 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,['post_title'=>'required','post_body'=>'required']);    
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension =$request->file('image')->getClientOriginalExtension();
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $path=$request->file('image')->storeAs('public/images',$fileNameToStore);
+        }
+
+        
+        else{
+            $fileNameToStore='noimage.jpg';
+        }
 
         $post = new Post;
         $post->post_title=$request->input('post_title');
         $post->post_body=$request->input('post_body');
+        $post->image=$fileNameToStore;
         $post->user_id = auth()->user()->id;
         $post->save();
         return redirect('/post/create')->with('success','Post Added');
