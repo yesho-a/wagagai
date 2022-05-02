@@ -19,6 +19,12 @@
                                     {{Form::label('post','Post')}}
                                     {{Form::textarea('post_body','',['class'=>'form-control','placeholder'=>'Post'])}}
                                 </div>
+                                <div class="form-group pb-3">
+                                    {{Form::label('Feature Photo','Feature Photo')}}
+
+                                    {{Form::file('image')}}
+                               
+                                  </div>
                                 <div class="form-group">
                                     {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
                                     {!! Form::close() !!}
