@@ -19,8 +19,31 @@
                                 </div>
                                 <p  class="text-center"><b>Author: {{ $post->user->name }}<br>
                                     Published: {{$post->created_at->todatestring()}}</b></p>
-
                             </div>
+                            <hr/>
+
+                            <h4>Comments</h4>
+                                <div class="display-comment">
+                               
+                                <strong></strong>
+                       
+                                
+                                <strong></strong>
+
+                                <p></p>
+                                </div>
+                            <hr />
+                            <h4>Add comment</h4>
+                            <form method="post" action="{{ route('comment.store') }}">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" name="comment" class="form-control" />
+                                    <input type="hidden" name="post_id" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-warning" value="Add Comment" />
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

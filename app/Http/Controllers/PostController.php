@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\post;
 use App\Models\User;
+use App\Models\Comment;
+
 use Auth;
 use Illuminate\Http\Request;
 
@@ -68,6 +70,7 @@ class PostController extends Controller
     
     
     }
+   
 
     /**
      * Display the specified resource.
