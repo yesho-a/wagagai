@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class post extends Model
+class Post extends Model
 {
     use HasFactory;
     protected $table = 'posts';
@@ -20,11 +20,18 @@ class post extends Model
 
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+
     public function getExcerptAttribute(){
        $x = $this->post_body;
       $y = substr($x, 0, 100); 
        return $y.'....';
     }
+
      
 
 

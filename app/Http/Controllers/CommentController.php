@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
-use App\Models\post;
+use App\Models\Post;
 use App\Models\User;
 
 
@@ -42,14 +42,17 @@ class CommentController extends Controller
        // Store Comments here
         $comment = new Comment;
         $comment->comment = $request->get('comment');
-       // $comment->user()->associate($request->user());
-        if (isset(auth()->user()->id)) {
-            $comment->user_id = auth()->user()->id;
-        } else {
-            $comment->user_id = 0;
-        }
-        $post = Post::find($request->get('post_id'));
+        $comment->user_id = auth()->user()->id;
+        $post = post::findOrFail($request->get('post_id'));
         $post->comments()->save($comment);
+
+       // $comment->user()->associate($request->user());
+        // if (isset(auth()->user()->id)) {
+        //     $comment->user_id = auth()->user()->id;
+        // } else {
+        //     $comment->user_id = 0;
+        // }
+        // $post = Post::find($request->get('post_id'));
 
         return back();
     

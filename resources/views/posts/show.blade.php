@@ -20,25 +20,24 @@
                                 <p  class="text-center"><b>Author: {{ $post->user->name }}<br>
                                     Published: {{$post->created_at->todatestring()}}</b></p>
                             </div>
-                            <hr/>
-
-                            <h4>Comments</h4>
+                            <h4>Display Comments</h4>
+                            @foreach($post->comments as $comment)
                                 <div class="display-comment">
-                               
-                                <strong></strong>
-                       
-                                
-                                <strong></strong>
-
-                                <p></p>
+                                @if($comment->user_id==0)
+                                <strong>Guest</strong>
+                                @else
+                                <strong>{{$comment->user->name }}</strong>
+                                 @endif
+                                    <p>{{ $comment->comment }}</p>
                                 </div>
+                            @endforeach
                             <hr />
                             <h4>Add comment</h4>
-                            <form method="post" action="{{ route('comment.store') }}">
+                            <form method="post" action="{{ route('comment.add') }}">
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="comment" class="form-control" />
-                                    <input type="hidden" name="post_id" value="" />
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}" />
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-warning" value="Add Comment" />
