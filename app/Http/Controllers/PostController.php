@@ -34,8 +34,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('posts.create');
+    { 
+        $tx = Post::existingTags();
+       return view('posts.create')->with('tx',$tx);
+        //return $tx;
     }
 
     /**
@@ -59,12 +61,14 @@ class PostController extends Controller
         else{
             $fileNameToStore='noimage.jpg';
         }
-
+        $tags = explode(",", $request->tags);
         $post = new Post;
         $post->post_title=$request->input('post_title');
         $post->post_body=$request->input('post_body');
         $post->image=$fileNameToStore;
         $post->user_id = auth()->user()->id;
+        $post->save();
+        $post->tag();
         $post->save();
         return redirect('/post/create')->with('success','Post Added');
     

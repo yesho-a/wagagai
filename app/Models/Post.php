@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    use \Conner\Tagging\Taggable;
     protected $table = 'posts';
     public $primaryKey = 'id';
     public $timestamps = true;
