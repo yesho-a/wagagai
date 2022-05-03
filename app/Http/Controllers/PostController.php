@@ -68,11 +68,9 @@ class PostController extends Controller
         $post->image=$fileNameToStore;
         $post->user_id = auth()->user()->id;
         $post->save();
-        $post->tag();
+        $post->tag($tags);
         $post->save();
         return redirect('/post/create')->with('success','Post Added');
-    
-    
     }
    
 
