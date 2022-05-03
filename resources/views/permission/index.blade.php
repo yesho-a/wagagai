@@ -29,12 +29,12 @@
 
                       <td>
                         <a
-                          href="{{ route('permission.edit',$post->id) }}"
+                          href="{{ route('perm.edit',$post->id) }}"
                           class="btn btn-xs btn-success"
                           ><i class="fa fa-edit"></i> Edit
                         </a>
                         {!! Form::open(['method' => 'DELETE','route' =>
-                        ['permission.destroy',
+                        ['perm.destroy',
                         $post->id],'style'=>'display:inline']) !!} {{
                         Form::button('<i class="fa fa-trash"
                           ><span style="margin-left: 5px">Delete</span></i
