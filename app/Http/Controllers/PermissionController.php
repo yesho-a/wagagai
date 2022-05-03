@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use DB;
+use App\Models\User;
+
 
 class PermissionController extends Controller
 {
@@ -11,9 +16,16 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        //
+        $permissions = Permission::all();
+        return view('permission.index')->with('permissions', $permissions);
+
     }
 
     /**
@@ -23,7 +35,9 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::get(); //Get all roles
+
+        return view('permission.create')->with('roles', $roles);
     }
 
     /**
@@ -34,7 +48,28 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required|max:40',
+        ]);
+
+        $name = $request['name'];
+        $permission = new Permission();
+        $permission->name = $name;
+
+        $roles = $request['roles'];
+
+        $permission->save();
+
+        if (!empty($request['roles'])) { //If one or more role is selected
+            foreach ($roles as $role) {
+                $r = Role::where('id', '=', $role)->firstOrFail(); //Match input role to db record
+
+                $permission = Permission::where('name', '=', $name)->first(); //Match input //permission to db record
+                $r->givePermissionTo($permission);
+            }
+        }
+
+        return redirect('/perm')->with('success','User successfully added');
     }
 
     /**
@@ -45,7 +80,9 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+
+        return view('permission.edit', compact('permission'));
     }
 
     /**
@@ -56,7 +93,9 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+
+        return view('permission.edit', compact('permission'));
     }
 
     /**
@@ -68,7 +107,15 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+        $this->validate($request, [
+            'name'=>'required|max:40',
+        ]);
+        $input = $request->all();
+        $permission->fill($input)->save();
+             return redirect('/perm')->with('success','Permission successfully updated');
+
+
     }
 
     /**
@@ -79,6 +126,8 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+        $permission->delete();
+        return redirect('perm')->with('success','Permission deleted!');
     }
 }
