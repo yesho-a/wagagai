@@ -25,3 +25,4 @@ Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->n
 Route::resource('roles', App\Http\Controllers\RoleController::class);
 Route::resource('perm', App\Http\Controllers\PermissionController::class);
 
+Route::get('list','App\Http\Controllers\CategoryController@list');

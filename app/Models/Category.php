@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
     public $fillable = ['title','parent_id'];
-    protected $table = 'category';
+    protected $table = 'categories';
 
     public function childs() {
         return $this->hasMany('App\Models\Category','parent_id','id') ;
