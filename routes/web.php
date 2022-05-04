@@ -27,4 +27,5 @@ Route::resource('perm', App\Http\Controllers\PermissionController::class);
 
 Route::get('list','App\Http\Controllers\CategoryController@list');
 Route::get('add','App\Http\Controllers\CategoryController@manageCategory');
+Route::post('store','App\Http\Controllers\CategoryController@addCategory');
 
