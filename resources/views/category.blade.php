@@ -2,7 +2,7 @@ Add Category
 </a>
 <div class="collapse bg-info" id="collapseExample">
   {!! Form::open(['route'=>'add.category']) !!}
-
+  @csrf
   <div
     class="form-group {{ $errors->has('title') ? 'has-error' : '' }} pt-4 pr-4 pl-4"
   >
