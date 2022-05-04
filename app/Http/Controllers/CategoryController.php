@@ -31,5 +31,11 @@ class CategoryController extends Controller
         return back()->with('success', 'New Category added successfully.');
     }
 
+    public function list()
+    {
+        $cat = Category::all();
+        return  response()->json($cat);    
+    }
+
 
 }
