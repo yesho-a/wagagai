@@ -13,7 +13,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js" integrity="sha512-VvWznBcyBJK71YKEKDMpZ0pCVxjNuKwApp4zLF3ul+CiflQi6aIJR+aZCP/qWsoFBA28avL5T5HA+RE+zrGQYg==" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <style type="text/css">
@@ -58,9 +58,7 @@
                                   <div class="form-group pb-3">
                                       <div class="col-11">
                                       {{Form::label('post','Post')}}
-                                      {{Form::textarea('post_body','',['class'=>'ckeditor form-control','placeholder'=>'Post'])}}
-
-  
+                                      {{Form::textarea('post_body','',['class'=>'ckeditor form-control','id'=>'body','placeholder'=>'Post'])}}
                                     </div>
                                   </div>
                                   <div class="form-group p-2">
@@ -145,7 +143,13 @@
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-
+    <script>
+      ClassicEditor
+      .create( document.querySelector( '#body' ) )
+      .catch( error => {
+      console.error( error );
+      } );
+      </script>
 
   </body>
 </html>
