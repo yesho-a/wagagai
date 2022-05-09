@@ -50,10 +50,12 @@ class PostController extends Controller
         $tx = Post::existingTags();
         $categories = Category::where('parent_id', '=', 0)->get();
         $allCategories = Category::all();
+        $cax = Category::pluck('title','id');
         return view('test')
         ->with('tx',$tx)
         ->with('categories',$categories)
-        ->with('allCategories',$allCategories);
+        ->with('allCategories',$allCategories)
+        ->with('cax',$cax);
         //return($allCategories);
         
        

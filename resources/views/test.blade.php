@@ -58,8 +58,10 @@
                                   <div class="form-group pb-3">
                                       <div class="col-11">
                                       {{Form::label('post','Post')}}
-                                      {{Form::textarea('post_body','',['class'=>'form-control','placeholder'=>'Post'])}}
-                                      </div>
+                                      {{Form::textarea('post_body','',['class'=>'ckeditor form-control','placeholder'=>'Post'])}}
+
+  
+                                    </div>
                                   </div>
                                   <div class="form-group p-2">
                                       {{Form::label('Feature Photo','Feature Photo')}}
@@ -78,19 +80,13 @@
                                           {{ $value->title }}</label>
                                     <br/>
                                     @endforeach
-                                    <a
-                                    class=""
-                                    data-toggle="collapse"
-                                    href="#collapseExample"
-                                    role="button"
-                                    aria-expanded="false"
-                                    aria-controls="collapseExample"
-                                  >
-                                    Add Category
-                                  </a>
+                                  <!-- Button trigger modal -->
+                                  <a class="text-info" data-toggle="modal" data-target="#exampleModal"
+                                  role="button" aria-expanded="false" aria-controls="collapseExample">Add Category</a>
+
                                   </div>
                                       </div>
-                                    </div>
+                                 
                                     <div class="form-group pb-3">
                                       <label for="Tags">Tags:</label>
                                       <input type="text" data-role="tagsinput" class="form-control" name="tags">
@@ -99,7 +95,8 @@
                                       {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
                                       {!! Form::close() !!}
                                   </div>
-                          </div>
+
+                              
                           </div>
                       </div>
                   </div>
@@ -107,7 +104,45 @@
           </div>
       </div>
   </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {!! Form::open(['route'=>'add.category']) !!}
+         
+        <div
+          class="form-group {{ $errors->has('title') ? 'has-error' : '' }} pt-4 pr-4 pl-4"
+        >
+          {!! Form::label('Category Name:') !!} {!! Form::text('title',
+          old('title'), ['class'=>'form-control', 'placeholder'=>'Enter Category Name']) !!}
+          <span class="text-danger">{{ $errors->first('title') }}</span>
+        </div>
 
+        <div
+          class="form-group {{ $errors->has('parent_id') ? 'has-error' : '' }}  m-4"
+        >
+          {!! Form::label('Parent Category:') !!} {!!
+          Form::select('parent_id',$cax, old('parent_id'),
+          ['class'=>'form-control', 'placeholder'=>'Select Parent
+          Category']) !!}
+          <span class="text-danger">{{ $errors->first('parent_id') }}</span>
+        </div>
+        <div class="form-group m-4 pb-4">
+          <button class="btn btn-success">Add New</button>
+        </div>
+        {!! Form::close() !!}
+      </div>
+    
+    </div>
+  </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
