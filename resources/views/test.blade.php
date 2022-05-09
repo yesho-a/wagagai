@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                       <div class="form-group">
-                                        <strong>Select Category:</strong>
+                                        <strong>Select Post Category:</strong>
                                         <br/>
                                         <div class="overflow-auto">
                                         @foreach($allCategories  as $value)
