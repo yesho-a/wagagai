@@ -61,7 +61,7 @@
                                       {{Form::textarea('post_body','',['class'=>'form-control','placeholder'=>'Post'])}}
                                       </div>
                                   </div>
-                                  <div class="form-group pb-3">
+                                  <div class="form-group p-2">
                                       {{Form::label('Feature Photo','Feature Photo')}}
   
                                       {{Form::file('image')}}
@@ -71,12 +71,14 @@
                                       <div class="form-group">
                                         <strong>Select Category:</strong>
                                         <br/>
+                                        <div class="overflow-auto">
                                         @foreach($allCategories  as $value)
                                         <label>{{ Form::checkbox('cat[]', $value->id, false, array('class' => 'name')) }}
                                         
                                           {{ $value->title }}</label>
                                     <br/>
                                     @endforeach
+                                  </div>
                                       </div>
                                     </div>
                                     <div class="form-group pb-3">
