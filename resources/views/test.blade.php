@@ -4,150 +4,106 @@
     <title>Laravel 8 Ajax Post Request Tutorial - Online Web Tutor</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous" />
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js" integrity="sha512-VvWznBcyBJK71YKEKDMpZ0pCVxjNuKwApp4zLF3ul+CiflQi6aIJR+aZCP/qWsoFBA28avL5T5HA+RE+zrGQYg==" crossorigin="anonymous"></script>
+
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <style>
-      #frm-create-post label.error {
-        color: red;
+    <style type="text/css">
+      .label-info{
+          background-color: #17a2b8;
+
       }
-    </style>
+      .label {
+          display: inline-block;
+          padding: .25em .4em;
+          font-size: 75%;
+          font-weight: 700;
+          line-height: 1;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: baseline;
+          border-radius: .25rem;
+          transition: color .15s ease-in-out,background-color .15s ease-in-out,
+          border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      }
+  </style>
   </head>
 
   <body>
     <div class="container">
-      <div class="row bg-danger">
-        <div class="col-7">
-          <h4 style="text-align: center">
-            Laravel 8 Ajax Post Request Tutorial - Online Web Tutor
-          </h4>
-          <form action="javascript:void(0)" id="frm" method="post">
-         
-            <div class="form-group">
-              <label for="title">Title:</label>
-              <input
-                type="text"
-                class="form-control"
-                required
-                id="title"
-                name="title"
-                placeholder="Enter name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="description">Description:</label>
-              <textarea
-                class="form-control"
-                id="description"
-                required
-                name="description"
-                placeholder="Enter description"
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary" id="submit-post">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="col-3" style="padding-top: 4.4em">
-          <form id="fm2" method="post">
-            <select name="cat" id="labC" class="form-control">
-              <option value="0" selected="true">Select Category</option>
-            </select>
-          </form>
-          <a
-            class="text-dark"
-            data-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Add Category
-          </a>
-          <div class="collapse bg-info" id="collapseExample">
-            {!! Form::open(['route'=>'add.category']) !!}
-         
-            <div
-              class="form-group {{ $errors->has('title') ? 'has-error' : '' }} pt-4 pr-4 pl-4"
-            >
-              {!! Form::label('Category Name:') !!} {!! Form::text('title',
-              old('title'), ['class'=>'form-control', 'placeholder'=>'Enter
-              Category Names']) !!}
-              <span class="text-danger">{{ $errors->first('title') }}</span>
-            </div>
-
-            <div
-              class="form-group {{ $errors->has('parent_id') ? 'has-error' : '' }}  m-4"
-            >
-              {!! Form::label('Parent Category:') !!} {!!
-              Form::select('parent_id',$allCategories, old('parent_id'),
-              ['class'=>'form-control', 'placeholder'=>'Select Parent
-              Category']) !!}
-              <span class="text-danger">{{ $errors->first('parent_id') }}</span>
-            </div>
-            <div class="form-group m-4 pb-4">
-              <button class="btn btn-success">Add New</button>
-            </div>
-            {!! Form::close() !!}
+      <div class="row justify-content-center">
+          <div class="col-md">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="container" style="padding: 1rem;">
+                          <div class="row">
+                            <div class="col mr-5 ml-5">
+                              <h1> <strong></i>Add Post</u></strong></h1>
+                              {!! Form::open(['action'=>'App\Http\Controllers\PostController@store','method'=>'POST','enctype'=>'multipart/form-data']) !!}                     
+                              @csrf
+                              <div class="form-group">
+                                  <div class="col-11">
+                                  {{Form::label('title','Title')}}
+                                    {{Form::text('post_title','',['class'=>'form-control','placeholder'=>'Post Title'])}}
+                                  </div>
+                              </div>
+                                  <div class="form-group pb-3">
+                                      <div class="col-11">
+                                      {{Form::label('post','Post')}}
+                                      {{Form::textarea('post_body','',['class'=>'form-control','placeholder'=>'Post'])}}
+                                      </div>
+                                  </div>
+                                  <div class="form-group pb-3">
+                                      {{Form::label('Feature Photo','Feature Photo')}}
+  
+                                      {{Form::file('image')}}
+                                 
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                      <div class="form-group">
+                                        <strong>Select Category:</strong>
+                                        <br/>
+                                        @foreach($allCategories  as $value)
+                                        <label>{{ Form::checkbox('cat[]', $value->id, false, array('class' => 'name')) }}
+                                        
+                                          {{ $value->title }}</label>
+                                    <br/>
+                                    @endforeach
+                                      </div>
+                                    </div>
+                                    <div class="form-group pb-3">
+                                      <label for="Tags">Tags:</label>
+                                      <input type="text" data-role="tagsinput" class="form-control" name="tags">
+                                    </div>
+  
+  
+  
+                                    
+  
+                                  <div class="form-group">
+                                      {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+                                      {!! Form::close() !!}
+                                  </div>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
+  </div>
 
-    <div id="test"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $.ajax({
-          url: "list",
-          type: "GET",
-          dataType: "json", // added data type
-          success: function (res) {
-            jQuery.each(res, function (key, value) {
-              // $('#name').append(`<li>${value.title} <br></li>`);
-              $("#labC").append(
-                $("<option></option>").val(value.title).html(value.title)
-              );
-              // $('#test').append($("<button></button>").val(value.title).html(value.title));
-            });
-          },
-        });
-      });
-      $(document).ready(function () {
-        $("#frm").on("submit", function () {
-          $.ajaxSetup({
-            headers: {
-              "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-          });
-          event.preventDefault();
-          let x = $("#frm").serialize();
-          let y = $("#fm2").serialize();
-          var data = x + "&" + y;
 
-          $.ajax({
-            url: "ajax",
-            type: "post",
-            //data: { title: title,description: description},
-            data: data,
-            dataType: "json", // added data type
-            success: function (data) {
-              console.log(data);
-            },
-          });
-        });
-      });
-    </script>
   </body>
 </html>

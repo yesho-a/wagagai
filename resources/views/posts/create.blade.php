@@ -35,15 +35,20 @@
                                     {{Form::file('image')}}
                                
                                   </div>
+                                  <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                      <strong>Select Category:</strong>
+                                      <br/>
+                                      @foreach($allCategories  as $value)
+                                      <label>{{ Form::checkbox('cat[]', $value->id, false, array('class' => 'name')) }}
+                                        {{ $value->title }}</label>
+                                  <br/>
+                                  @endforeach
+                                    </div>
+                                  </div>
                                   <div class="form-group pb-3">
                                     <label for="Tags">Tags:</label>
                                     <input type="text" data-role="tagsinput" class="form-control" name="tags">
-                                    <?php
-                                    // foreach($tx as $tag) {
-                                    //     echo "<span class='badge' style='background-color:red;margin-left:3px' name='test'> $tag->name</span>";
-                                    //  }
-                                    //   echo '<br>';
-                                      ?>
                                   </div>
 
 

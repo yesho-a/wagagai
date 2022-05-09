@@ -16,6 +16,24 @@
                              <div class="container pt-4" id="text">
                                     {{$post->post_body}}
                                     </div>
+
+                                    <div class="container pt-4" id="text">
+                                       <?php
+
+                                       foreach ($post->cat as $tx) {
+                                           $x = $tx;
+                                           foreach ($cat  as $value) {
+                                               if($value->id == $x){
+                                                   echo ($value->title);
+                                                   echo '<br>';
+                                               }
+                                           }
+                                       }
+
+
+                                       ?>
+                                    
+                                        </div>
                                 </div>
                                 <p  class="text-center"><b>Author: {{ $post->user->name }}<br>
                                     Published: {{$post->created_at->todatestring()}}</b></p>

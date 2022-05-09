@@ -12,7 +12,10 @@ class Post extends Model
     protected $table = 'posts';
     public $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ['user_id'];
+    protected $fillable = ['post_title', 'post_body','cat','user_id','image'];
+    protected $casts = [
+        'cat' => 'array',
+    ];
 
     public function user()
     {

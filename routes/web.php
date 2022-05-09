@@ -24,7 +24,8 @@ Route::resource('post', App\Http\Controllers\PostController::class);
 Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->name('comment.add');
 Route::resource('roles', App\Http\Controllers\RoleController::class);
 Route::resource('perm', App\Http\Controllers\PermissionController::class);
-
 Route::get('list','App\Http\Controllers\CategoryController@list');
 Route::get('add','App\Http\Controllers\CategoryController@manageCategory');
+Route::get('/test', [App\Http\Controllers\PostController::class, 'test'])->name('test');
+Route::post('ajax', [App\Http\Controllers\PostController::class, 'ajax']);
 Route::post('add-category',['as'=>'add.category','uses'=>'App\Http\Controllers\CategoryController@addCategory']);

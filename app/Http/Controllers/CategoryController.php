@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         $categories = Category::where('parent_id', '=', 0)->get();
         $allCategories = Category::pluck('title','id')->all();
-        return view('test',compact('categories','allCategories'));
+        return view('category.create',compact('categories','allCategories'));
     }
 
     public function addCategory(Request $request)

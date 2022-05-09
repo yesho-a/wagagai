@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Category;
+
 
 use Auth;
 use Illuminate\Http\Request;
@@ -37,9 +39,57 @@ class PostController extends Controller
     { 
         $tx = Post::existingTags();
        return view('posts.create')->with('tx',$tx);
-        //return $tx;
+        // return $tx;
+        // $auth = auth()->user()->id;
+        // return $auth;
     }
 
+
+    public function test()
+    { 
+        $tx = Post::existingTags();
+        $categories = Category::where('parent_id', '=', 0)->get();
+        $allCategories = Category::all();
+        return view('test')
+        ->with('tx',$tx)
+        ->with('categories',$categories)
+        ->with('allCategories',$allCategories);
+        //return($allCategories);
+        
+       
+    }
+
+    public function ajax(Request $request){
+      
+        $this->validate($request,['post_title'=>'required','post_body'=>'required']);    
+        if($request->hasFile('image')){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension =$request->file('image')->getClientOriginalExtension();
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $path=$request->file('image')->storeAs('public/images',$fileNameToStore);
+        }
+
+        
+        else{
+            $fileNameToStore='noimage.jpg';
+        }
+
+        $tags = explode(",", $request->tags);
+        $post = new Post;
+        $post->post_title=$request->input('post_title');
+        $post->post_body=$request->input('post_body');
+        $post->cat=$request->input('post_body');
+        $post->image=$fileNameToStore;
+        $post->user_id = auth()->user()->id;
+        $post->save();
+        $post->tag($tags);
+        $post->save();
+        return redirect('/post')->with('success','Post Added');
+
+
+
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -61,16 +111,20 @@ class PostController extends Controller
         else{
             $fileNameToStore='noimage.jpg';
         }
+
         $tags = explode(",", $request->tags);
         $post = new Post;
         $post->post_title=$request->input('post_title');
         $post->post_body=$request->input('post_body');
+        $post['cat'] = $request->input('cat');
         $post->image=$fileNameToStore;
         $post->user_id = auth()->user()->id;
         $post->save();
         $post->tag($tags);
         $post->save();
         return redirect('/post/create')->with('success','Post Added');
+     
+
     }
    
 
@@ -83,7 +137,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-       return view('posts.show')->with('post',$post);
+        $cat = Category::all();
+       return view('posts.show')->with('post',$post)->with('cat',$cat);
     }
 
     /**
