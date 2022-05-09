@@ -81,7 +81,7 @@
                                     <br/>
                                     @endforeach
                                   <!-- Button trigger modal -->
-                                  <a class="text-info" data-toggle="modal" data-target="#exampleModal"
+                                  <a class="text-danger" data-toggle="modal" data-target="#exampleModal"
                                   role="button" aria-expanded="false" aria-controls="collapseExample">Add Category</a>
 
                                   </div>
