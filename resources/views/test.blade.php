@@ -78,6 +78,16 @@
                                           {{ $value->title }}</label>
                                     <br/>
                                     @endforeach
+                                    <a
+                                    class=""
+                                    data-toggle="collapse"
+                                    href="#collapseExample"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls="collapseExample"
+                                  >
+                                    Add Category
+                                  </a>
                                   </div>
                                       </div>
                                     </div>
@@ -85,11 +95,6 @@
                                       <label for="Tags">Tags:</label>
                                       <input type="text" data-role="tagsinput" class="form-control" name="tags">
                                     </div>
-  
-  
-  
-                                    
-  
                                   <div class="form-group">
                                       {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
                                       {!! Form::close() !!}
