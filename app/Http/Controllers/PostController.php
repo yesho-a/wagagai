@@ -68,18 +68,21 @@ class PostController extends Controller
 
 
     public function cat($cat){
-        $post = Post::find($cat);
+        $posts = Post::find($cat);
         $ca = Category::all();
-        $x = $post->cat;
+        $x = $posts->cat;
         foreach ($x as $tx) {
             $x = $tx;
             foreach ($ca  as $value) {
                 if($value->id == $x){
-                    echo ($value->title);
-                    echo '<br>';
+                $name =  $value->title;
+                 
                 }
             }
         }
+
+        return view('category.cat')->with('posts',$posts);
+        //return $posts;
 
 
      
