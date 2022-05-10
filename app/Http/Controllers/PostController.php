@@ -63,7 +63,7 @@ class PostController extends Controller
 
     public function tags($tag){
         $tags = Post::withAnyTag($tag)->get();
-        return ($tags);
+        return view('tags.index')->with('tags',$tags);
     }
 
     public function ajax(Request $request){
