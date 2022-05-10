@@ -29,3 +29,4 @@ Route::get('add','App\Http\Controllers\CategoryController@manageCategory');
 Route::get('/test', [App\Http\Controllers\PostController::class, 'test'])->name('test');
 Route::post('ajax', [App\Http\Controllers\PostController::class, 'ajax']);
 Route::post('add-category',['as'=>'add.category','uses'=>'App\Http\Controllers\CategoryController@addCategory']);
+Route::get('tags/{tag}', [App\Http\Controllers\PostController::class, 'tags']);

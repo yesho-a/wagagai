@@ -61,6 +61,11 @@ class PostController extends Controller
        
     }
 
+    public function tags($tag){
+        $tags = Post::withAnyTag($tag)->get();
+        return ($tags);
+    }
+
     public function ajax(Request $request){
       
         $this->validate($request,['post_title'=>'required','post_body'=>'required']);    

@@ -38,7 +38,7 @@
                                         <?php
                                         foreach($post->tags as $tag) {
                                         
-                                        echo "<a class='badge' style='background-color:red;margin-left:3px' name='test'> $tag->name</a>";
+                                        echo "<a class='badge' href='/tags/$tag->name' style='background-color:red;margin-left:3px' name='test'> $tag->name</a>";
                                        
 
                                   
