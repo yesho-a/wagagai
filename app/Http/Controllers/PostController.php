@@ -67,10 +67,21 @@ class PostController extends Controller
     }
 
 
-    public function cat(){
-        $post = Post::find(12);
-       // $cat = Category::all();
-       return $post->cat;
+    public function cat($cat){
+        $post = Post::find($cat);
+        $ca = Category::all();
+        $x = $post->cat;
+        foreach ($x as $tx) {
+            $x = $tx;
+            foreach ($ca  as $value) {
+                if($value->id == $x){
+                    echo ($value->title);
+                    echo '<br>';
+                }
+            }
+        }
+
+
      
     }
 
