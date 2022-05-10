@@ -41,18 +41,26 @@
                                      
 
                                              <hr>
-                                       <h6><strong>Tags</strong></h6>
+                            
+                                             @if (count($post->tags)>=1)
+                                             <h6><strong>Tags</strong></h6>
                                  
-                                        <?php
-                                        foreach($post->tags as $tag) {
-                                        
-                                        echo "<a class='badge' href='/tags/$tag->name' style='background-color:red;margin-left:3px' name='test'> $tag->name</a>";
+                                             <?php
+                                             foreach($post->tags as $tag) {
+                                             
+                                             echo "<a class='badge' href='/tags/$tag->name' style='background-color:red;margin-left:3px' name='test'> $tag->name</a>";
+                                            
+     
                                        
-
-                                  
-                                        }
-                                       
-                                          ?> 
+                                             }
+                                            
+                                               ?> 
+                                             @else
+                                            
+                                             
+                                             @endif
+              
+                                      
                                     
                                         </div>
                                 </div>
