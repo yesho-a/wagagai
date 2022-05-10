@@ -18,6 +18,7 @@
                                     </div>
 
                                     <div class="container pt-4" id="text">
+                                        <hr>
                                         @if ($post->cat==!null)
                                         <?php
                                         foreach ($post->cat as $tx) {
@@ -37,7 +38,6 @@
                                         @else
                                         <p></p>
                                         @endif
-                                     
                                      
 
                                              <hr>
