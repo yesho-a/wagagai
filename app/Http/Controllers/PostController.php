@@ -67,7 +67,7 @@ class PostController extends Controller
     }
 
 
-    public function cat(){
+    public function cat($x){
       //  $posts = Post::find($cat);
         // $ca = Category::all();
         // $x = $posts->cat;
@@ -81,10 +81,10 @@ class PostController extends Controller
         //     }
         // }
 
-        $x = '1';
-        $post = Post::whereJsonContains('cat', $x)->get();
-        //return view('category.cat')->with('posts',$posts);
-        return $post;
+       
+        $posts = Post::whereJsonContains('cat', $x)->get();
+        return view('category.cat')->with('posts',$posts);
+        //return $post;
 
 
      
