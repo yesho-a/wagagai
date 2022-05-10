@@ -67,22 +67,22 @@ class PostController extends Controller
     }
 
 
-    public function cat($cat){
-        $posts = Post::find($cat);
-        $ca = Category::all();
-        $x = $posts->cat;
-        foreach ($x as $tx) {
-            $x = $tx;
-            foreach ($ca  as $value) {
-                if($value->id == $x){
-                $name =  $value->title;
+    public function cat(){
+      //  $posts = Post::find($cat);
+        // $ca = Category::all();
+        // $x = $posts->cat;
+        // foreach ($x as $tx) {
+        //     $x = $tx;
+        //     foreach ($ca  as $value) {
+        //         if($value->id == $x){
+        //         $name =  $value->title;
                  
-                }
-            }
-        }
-
-        return view('category.cat')->with('posts',$posts);
-        //return $posts;
+        //         }
+        //     }
+        // }
+        $post = Post::whereJsonContains('cat', '1')->get();
+        //return view('category.cat')->with('posts',$posts);
+        return $post;
 
 
      
