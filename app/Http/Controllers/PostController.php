@@ -68,20 +68,7 @@ class PostController extends Controller
 
 
     public function cat($x){
-      //  $posts = Post::find($cat);
-        // $ca = Category::all();
-        // $x = $posts->cat;
-        // foreach ($x as $tx) {
-        //     $x = $tx;
-        //     foreach ($ca  as $value) {
-        //         if($value->id == $x){
-        //         $name =  $value->title;
-                 
-        //         }
-        //     }
-        // }
-
-       
+     
         $posts = Post::whereJsonContains('cat', $x)->get();
         return view('category.cat')->with('posts',$posts);
         //return $post;
