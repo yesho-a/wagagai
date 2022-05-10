@@ -80,7 +80,9 @@ class PostController extends Controller
         //         }
         //     }
         // }
-        $post = Post::whereJsonContains('cat', '1')->get();
+
+        $x = '1';
+        $post = Post::whereJsonContains('cat', $x)->get();
         //return view('category.cat')->with('posts',$posts);
         return $post;
 
