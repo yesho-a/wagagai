@@ -66,6 +66,14 @@ class PostController extends Controller
         return view('tags.index')->with('tags',$tags);
     }
 
+
+    public function cat(){
+        $post = Post::find(12);
+       // $cat = Category::all();
+       return $post->cat;
+     
+    }
+
     public function ajax(Request $request){
       
         $this->validate($request,['post_title'=>'required','post_body'=>'required']);    

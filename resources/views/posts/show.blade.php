@@ -25,6 +25,8 @@
                                            foreach ($cat  as $value) {
                                                if($value->id == $x){
                                                    echo ($value->title);
+                                                   echo "<a class='badge' href='/post' style='background-color:green;margin-left:3px' name='test'>$value->title</a>";
+
                                                    echo '<br>';
                                                }
                                            }
