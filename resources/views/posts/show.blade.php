@@ -37,23 +37,7 @@
                                         @else
                                         <p></p>
                                         @endif
-                                       <?php
-                                       
-                                      
-
-                                    //    foreach ($post->cat as $tx) {
-                                    //        $x = $tx;
-                                    //        foreach ($cat  as $value) {
-                                    //            if($value->id == $x){
-                                    //                echo "<a class='badge' href='/ca/$tx' style='background-color:green;margin-left:3px' name='test'>$value->title</a>";
-
-                                    //                echo '<br>';
-                                    //            }
-                                    //        }
-                                    //    }
-
-
-                                       ?>
+                                     
                                      
 
                                              <hr>
