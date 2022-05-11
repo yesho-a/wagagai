@@ -30,6 +30,12 @@ class PostController extends Controller
        return view('posts.index')->with('posts',$posts);
     }
 
+    public function admin()
+    {
+       return view('admin');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
