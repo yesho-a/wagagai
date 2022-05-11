@@ -1,11 +1,15 @@
-<?php include('header.php')?>
+<!DOCTYPE html>
+<html>
+  @include('admin-inc.head')
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
-<?php include('navbar.php')?>
-<?php include('sidebar.php')?>
-<?php include('content.php')?>
-<?php include('footer.php')?>
-  <!-- /wrapper -->
+  @include('admin-inc.navbar')
+  @include('admin-inc.sidebar')
+  <div class="content-wrapper">
+    @yield('content')
 </div>
+  @include('admin-inc.footer')
 </body>
 </html>
+
+
