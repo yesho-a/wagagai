@@ -70,7 +70,7 @@
         <a href="#" class="nav-link">
             <i class="nav-icon fas fa-photo-video"></i>
             <p>
-              Categories
+               Media
               <i class="fas fa-angle-left right"></i>
 
             </p>
@@ -78,7 +78,7 @@
        </li>
        <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-building"></i>
+            <i class="nav-icon fas fa-list"></i>
             <p>
               Categories
               <i class="fas fa-angle-left right"></i>
