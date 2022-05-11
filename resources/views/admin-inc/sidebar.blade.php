@@ -66,8 +66,16 @@
           </ul>
        </li>
 
-         
-      
+       <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-photo-video"></i>
+            <p>
+              Categories
+              <i class="fas fa-angle-left right"></i>
+
+            </p>
+          </a>
+       </li>
        <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
             <i class="nav-icon fas fa-building"></i>
@@ -156,7 +164,8 @@
       
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-lock"></i>
+            <i class="nav-icon fas fa-users"></i>
+           
             <p>
              User Roles
               <i class="fas fa-angle-left right"></i>
@@ -177,9 +186,10 @@
             </li>
            
           </ul>
+
           <li class="nav-item has-treeview">
             <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+              <i class="nav-icon fas fa-lock"></i>
               <p>
                 User Permission
                 <i class="fas fa-angle-left right"></i>
