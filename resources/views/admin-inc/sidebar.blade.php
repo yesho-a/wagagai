@@ -41,7 +41,8 @@
      
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon fas fa-book"></i>
+         
             <p>
               Posts
               <i class="fas fa-angle-left right"></i>
@@ -124,7 +125,7 @@
         </li>
         <li class="nav-item has-treeview">
           <a href="/user" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon fas fa-comments"></i>
             <p>
               Comments
               <i class="fas fa-angle-left right"></i>
