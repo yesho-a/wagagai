@@ -53,13 +53,13 @@
             <li class="nav-item">
               <a href="/data" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>All Tenants</p>
+                <p>All Posts</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="/tenant/create" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Add Tenant</p>
+                <p>Add Post</p>
               </a>
             </li>
 
