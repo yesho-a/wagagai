@@ -43,7 +43,7 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
-              Tenants
+              Posts
               <i class="fas fa-angle-left right"></i>
 
             </p>
@@ -71,7 +71,7 @@
         <a href="#" class="nav-link">
             <i class="nav-icon fas fa-building"></i>
             <p>
-              Property
+              Categories
               <i class="fas fa-angle-left right"></i>
 
             </p>
@@ -98,7 +98,7 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-credit-card"></i>
             <p>
-              Payments
+             Tags
               <i class="fas fa-angle-left right"></i>
 
             </p>
@@ -126,7 +126,7 @@
           <a href="/user" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
-              Users
+              Comments
               <i class="fas fa-angle-left right"></i>
 
             </p>
