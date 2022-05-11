@@ -97,7 +97,7 @@
 
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-credit-card"></i>
+            <i class="nav-icon fas fa-tags"></i>
             <p>
              Tags
               <i class="fas fa-angle-left right"></i>
@@ -156,7 +156,7 @@
       
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-book"></i>
+            <i class="nav-icon fas fa-users"></i>
             <p>
              User Roles
               <i class="fas fa-angle-left right"></i>
