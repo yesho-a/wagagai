@@ -41,11 +41,10 @@
             <small style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
             <br>
             {{$post->post_body}}
-
- 
-         
         </div>
         <hr>
+                                     
+     
       
 </div>
 </div>
