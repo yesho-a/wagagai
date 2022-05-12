@@ -13,7 +13,7 @@
                     ><b>Create New Permission</b></a
                   >
                 </span>
-                <table class="table">
+                <table class="table" style="margin-top: 1rem">
                   <thead class="thead-dark">
                     <tr>
                       <th scope="col">ID</th>

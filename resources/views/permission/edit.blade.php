@@ -11,7 +11,7 @@
                 <br />
 
                 {!! Form::model($permission, ['method' => 'PATCH','route' =>
-                ['permission.update', $permission->id]]) !!}
+                ['perm.update', $permission->id]]) !!}
 
                 <div class="form-group">
                   {{ Form::label('name', 'Permission Name') }} {{
