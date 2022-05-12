@@ -28,13 +28,13 @@
            
          <span class="card-title p-4"> <h1  style="font-size:2em">{{$post->post_title}}
           </h1>
-           
+          <small style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
+        </span>
           <div class="text-center">
             <img style="width:90%;height:18rem;" src="{{ asset('storage/images/'.$post->image) }} "alt=" {{$post->image}}">
             
         </div>  
-          <small style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
-          </span>
+       
             
 
           <p class="card-text" style="text-align:justify">
