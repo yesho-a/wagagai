@@ -44,7 +44,6 @@
         </div>
         <hr>
         <div class="col-4">
-        <h5 class="title" style="border-bottom: 3px solid black"><b>Tags</b></h5>
         @if (count($post->tags)>=1)
         <h6><strong>Tags</strong></h6>
 
