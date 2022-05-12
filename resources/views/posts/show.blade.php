@@ -26,9 +26,9 @@
 
         <div class="card-body ">
            
-         <span class="card-title p-4"> <h1  style="font-size:2em">{{$post->post_title}}
+         <span class="card-title p-4"> <h1  style="font-size:2em"><strong>{{$post->post_title}}</strong>
           </h1>
-          <small style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
+          
         </span>
           <div class="text-center">
             <img style="width:90%;height:18rem;" src="{{ asset('storage/images/'.$post->image) }} "alt=" {{$post->image}}">
@@ -37,7 +37,9 @@
        
             
 
-          <p class="card-text" style="text-align:justify">
+          <p class="card-text pt-4" style="text-align:justify">
+            <small style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
+            <br>
             {{$post->post_body}}
 
  
