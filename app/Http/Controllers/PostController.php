@@ -62,7 +62,6 @@ class PostController extends Controller
         ->with('categories',$categories)
         ->with('allCategories',$allCategories)
         ->with('cax',$cax);
-        //return($allCategories);
         
        
     }
@@ -77,7 +76,7 @@ class PostController extends Controller
      
         $posts = Post::whereJsonContains('cat', $x)->get();
         return view('category.cat')->with('posts',$posts);
-        //return $post;
+    
 
 
      

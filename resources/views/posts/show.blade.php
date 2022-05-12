@@ -74,6 +74,16 @@
                 <p>{{ $comment->comment }}</p>
             </div>
         @endforeach
+        <form method="post" action="{{ route('comment.add') }}">
+            @csrf
+            <div class="form-group pb-3">
+                <input type="text" name="comment" class="form-control" />
+                <input type="hidden" name="post_id" value="{{ $post->id }}" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-warning" value="Add Comment" hidden />
+            </div>
+        </form>
         <hr />
 </div>
 </div>
