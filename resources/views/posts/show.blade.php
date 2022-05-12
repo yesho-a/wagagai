@@ -62,13 +62,13 @@
      
 
         <hr>
-        <p style="font-family: Cambria, Cochin, Georgia, Times;font-size:1rem"><strong>Comments</strong></p>
+        <span style="font-family: Cambria, Cochin, Georgia, Times;font-size:1rem"><strong>Comments</strong></span>
         @foreach($post->comments as $comment)
-            <div class="display-comment">
+            <div class="display-comment mt-1">
             @if($comment->user_id==0)
             <strong>Guest</strong>
             @else
-           <i>{{$comment->user->name }}</i>
+          <i> {{$comment->user->name }}</i>
              @endif
                 <p>{{ $comment->comment }}</p>
             </div>
