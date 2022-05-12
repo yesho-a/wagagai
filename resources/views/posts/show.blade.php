@@ -84,7 +84,7 @@
                 <input type="submit" class="btn btn-warning" value="Add Comment" hidden />
             </div>
         </form>
-        <hr />
+       
 </div>
 </div>
 
