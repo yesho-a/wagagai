@@ -41,29 +41,40 @@
             <small style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
             <br>
             {{$post->post_body}}
-        </div>
-        <hr>
-        <div class="col-4">
-        @if (count($post->tags)>=1)
-        <h6><strong>Tags</strong></h6>
+            <br>
+            @if (count($post->tags)>=1)
 
-        <?php
-        foreach($post->tags as $tag) {
-        
-        echo "<a class='btn badge' href='/tags/$tag->name' style='background-color:red;margin-left:3px' name='test'> $tag->name</a>";
-       
-
-  
-        }
-       
-          ?> 
-        @else
-       
-        
-        @endif
-
+            <?php
+            foreach($post->tags as $tag) {
             
+            echo "<a class='btn badge' href='/tags/$tag->name' style='background-color:red;margin-left:3px' name='test'> $tag->name</a>";
+           
+    
+      
+            }
+           
+              ?> 
+            @else
+           
+            
+            @endif
         </div>
+  
+     
+
+        <hr>
+        <h4>Comments</h4>
+        @foreach($post->comments as $comment)
+            <div class="display-comment">
+            @if($comment->user_id==0)
+            <strong>Guest</strong>
+            @else
+            <strong>{{$comment->user->name }}</strong>
+             @endif
+                <p>{{ $comment->comment }}</p>
+            </div>
+        @endforeach
+        <hr />
 </div>
 </div>
 
