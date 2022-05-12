@@ -58,18 +58,17 @@
            
             
             @endif
-        </div>
   
      
 
         <hr>
-        <h4>Comments</h4>
+        <p style="font-family: Cambria, Cochin, Georgia, Times;font-size:1rem"><strong>Comments</strong></p>
         @foreach($post->comments as $comment)
             <div class="display-comment">
             @if($comment->user_id==0)
             <strong>Guest</strong>
             @else
-            <strong>{{$comment->user->name }}</strong>
+           <i>{{$comment->user->name }}</i>
              @endif
                 <p>{{ $comment->comment }}</p>
             </div>
@@ -77,14 +76,15 @@
         <form method="post" action="{{ route('comment.add') }}">
             @csrf
             <div class="form-group pb-3">
-                <input type="text" name="comment" class="form-control" />
+                <input type="text" name="comment" class="form-control" placeholder="Add Comment Here" />
                 <input type="hidden" name="post_id" value="{{ $post->id }}" />
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-warning" value="Add Comment" hidden />
             </div>
         </form>
-       
+      </div>
+
 </div>
 </div>
 

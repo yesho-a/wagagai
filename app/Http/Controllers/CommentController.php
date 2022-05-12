@@ -54,7 +54,7 @@ class CommentController extends Controller
         // }
         // $post = Post::find($request->get('post_id'));
 
-        return back();
+      return back();
     
     }
 
