@@ -33,3 +33,5 @@ Route::get('tags/{tag}', [App\Http\Controllers\PostController::class, 'tags']);
 Route::get('ca/{cat}', [App\Http\Controllers\PostController::class, 'cat']);
 //Route::get('cat', [App\Http\Controllers\PostController::class, 'cat']);
 Route::get('admin', [App\Http\Controllers\PostController::class, 'admin']);
+
+
