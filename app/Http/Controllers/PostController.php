@@ -43,11 +43,17 @@ class PostController extends Controller
      */
     public function create()
     { 
+        
         $tx = Post::existingTags();
-       return view('posts.create')->with('tx',$tx);
-        // return $tx;
-        // $auth = auth()->user()->id;
-        // return $auth;
+        $categories = Category::where('parent_id', '=', 0)->get();
+        $allCategories = Category::all();
+        $cax = Category::pluck('title','id');
+        return view('posts.create')
+        ->with('tx',$tx)
+        ->with('categories',$categories)
+        ->with('allCategories',$allCategories)
+        ->with('cax',$cax);
+        
     }
 
 
@@ -65,6 +71,8 @@ class PostController extends Controller
         
        
     }
+
+    
 
     public function tags($tag){
         $tags = Post::withAnyTag($tag)->get();
