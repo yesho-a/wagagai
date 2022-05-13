@@ -14,40 +14,26 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push('Home', route('home'));
 });
 
-// Home > Blog
-Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
-    $trail->push('Blog', route('Blog'));
-});
+// // Home > Blog
+// Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
+//     $trail->parent('home');
+//     $trail->push('Blog', route('Blog'));
+// });
 
-// Home > Blog > [Category]
-Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
-    $trail->parent('blog');
-    $trail->push($category->title, route('category', $category));
-});
+// // Home > Blog > [Category]
+// Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
+//     $trail->parent('blog');
+//     $trail->push($category->title, route('category', $category));
+// });
 
 Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
     $trail->parent('home');
     $trail->push('Blog', route('post.index'));
 });
-// Breadcrumbs::for('post.show', function ($trail, $post) {
-//     $trail->parent('post.index');
-//     $trail->push('Post Title', route('post.show', $post));
-// });
-
-// Breadcrumbs::for('post.show', function (BreadcrumbTrail $trail, Post $project): void {
-//     $trail->parent('post.index');
-//     $trail->push('Post Title', route('post.show', $post));
-// });
-
-
-// Breadcrumbs::for('post.show', function ($breadcrumbs,$post) {
-//     $breadcrumbs->parent('post.index');
-//     $breadcrumbs->push($post->post_title, route('post.show',$post));
-// });
 
 Breadcrumbs::for('post.show', function ($trail,$post) {
     $trail->parent('post.index');
-    $trail->push('Title Here', route('post.show',$post));
+    $trail->push($post->post_title, route('post.show',$post));
 });
+
 
