@@ -38,7 +38,7 @@
             
 
           <p class="card-text pt-4" style="text-align:justify">
-            <small style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
+            <small class="bg-dark" style="color: lightskyblue">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
             <br>
             {{$post->post_body}}
             <br>
