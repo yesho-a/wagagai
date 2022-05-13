@@ -14,14 +14,6 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push('Home', route('home'));
 });
 
-// // Home > Blog
-// Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
-//     $trail->parent('home');
-//     $trail->push('Blog', route('Blog'));
-// });
-
-
-
 // Home > Blog >
 Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
     $trail->parent('home');
