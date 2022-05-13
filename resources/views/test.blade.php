@@ -90,7 +90,7 @@
                                       <input type="text" data-role="tagsinput" class="form-control" name="tags">
                                     </div>
                                   <div class="form-group">
-                                      {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+                                      {{Form::submit('Publish',['class'=>'btn btn-primary'])}}
                                       {!! Form::close() !!}
                                   </div>
 
