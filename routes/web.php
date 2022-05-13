@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::resource('post', App\Http\Controllers\PostController::class);
 Route::get('/post', [ App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+
 
 Route::post('/comment/store', 'App\Http\Controllers\CommentController@store')->name('comment.add');
 Route::resource('roles', App\Http\Controllers\RoleController::class);
