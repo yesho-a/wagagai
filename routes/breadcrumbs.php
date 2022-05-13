@@ -32,3 +32,12 @@ Breadcrumbs::for('post.edit', function (BreadcrumbTrail $trail, Post $post) {
     $trail->push('Edit Post', route('post.edit', $post));
 });
 
+
+// PERMISSION BREADCRUMBS
+
+// Home > Permissions
+
+Breadcrumbs::for('perm.index', function (BreadcrumbTrail $trail): void {
+    $trail->parent('home');
+    $trail->push('Permission', route('perm.index'));
+});
