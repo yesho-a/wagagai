@@ -82,7 +82,7 @@ class PermissionController extends Controller
     {
         $permission = Permission::findOrFail($id);
 
-        return view('permission.edit', compact('permission'));
+        return view('permission.show', compact('permission'));
     }
 
     /**
