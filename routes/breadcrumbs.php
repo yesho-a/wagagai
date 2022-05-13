@@ -50,7 +50,7 @@ Breadcrumbs::for('perm.create', function (BreadcrumbTrail $trail): void {
 });
 
 
-// Home > Permissions > Permission Titles 
+// Home > Permissions > Permission Title 
 Breadcrumbs::for('perm.show', function ($trail,$permission) {
     $trail->parent('perm.index');
     $trail->push($permission->name, route('perm.show', $permission));
