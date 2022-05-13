@@ -23,52 +23,49 @@
 
  <div class="container d-flex justify-content-center" style= 'margin-bottom: 3rem;'>
       <div class="card shadow-lg p-4" style="width: 80%">
-        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/post">Home</a></li>
-           
-            @if ($post->cat==!null)
-            <?php
-            foreach ($post->cat as $tx) {
-            $x = $tx;
-            foreach ($cat  as $value) {
-              if($value->id == $x){
-
-                echo "<li class='breadcrumb-item'><a href='/ca/$tx'>$value->title</a></li>";
-
-                }
-               }
-           }
-
-
-                   ?>
-
-            @else
-            <p></p>
-            @endif
-         
-
-          </ol>
-        </nav>
         <div class="card-body ">
+          <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/post"><small>Home</small></a></li>
+             
+              @if ($post->cat==!null)
+              <?php
+              foreach ($post->cat as $tx) {
+              $x = $tx;
+              foreach ($cat  as $value) {
+                if($value->id == $x){
+  
+                  echo "<li class='breadcrumb-item'><a href='/ca/$tx'><small>$value->title</small></a></li>";
+  
+                  }
+                 }
+             }
+  
+  
+                     ?>
+  
+              @else
+              <p></p>
+              @endif
            
-         <span class="card-title p-4"> <h1  style="font-size:2em"><strong>{{$post->post_title}}</strong>
+  
+            </ol>
+          </nav>
+         <span> <h1 class="m-0 p-0"  style="font-size:2em"><strong>{{$post->post_title}}</strong>
           </h1>
-          
+          <small style="color: rgb(95, 89, 89)"><i>{{$post->created_at->todatestring()}}</i></small>
+
         </span>
-          <div class="text-center">
-            <img style="width:90%;height:18rem;" src="{{ asset('storage/images/'.$post->image) }} "alt=" {{$post->image}}">
-            
-        </div>  
        
             
 
           <p class="card-text pt-4" style="text-align:justify">
-            <small class="bg-info">{{$post->created_at->todatestring()}} #  {{ $post->user->name }}</small>
-            <br>
+            <div class="text-center mb-3">
+              <img style="width:90%;height:18rem;" src="{{ asset('storage/images/'.$post->image) }} "alt=" {{$post->image}}">
+              
+          </div>
             {{$post->post_body}}
-            <br>
-            <br>
+           <br>
            <b><i>tags:</i></b>
             @if (count($post->tags)>=1)
 
@@ -96,7 +93,7 @@
             @if($comment->user_id==0)
             <strong>Guest</strong>
             @else
-          <i> {{$comment->user->name }}</i>
+           {{$comment->user->name }}
              @endif
                 <p>{{ $comment->comment }}</p>
             </div>
