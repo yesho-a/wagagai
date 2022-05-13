@@ -30,9 +30,18 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
     $trail->parent('home');
     $trail->push('Blog', route('post.index'));
 });
-Breadcrumbs::for('post.show', function ($trail, $post) {
-    $trail->parent('post.index');
-    $trail->push('Post Title', route('post.show', $post));
+// Breadcrumbs::for('post.show', function ($trail, $post) {
+//     $trail->parent('post.index');
+//     $trail->push('Post Title', route('post.show', $post));
+// });
+
+// Breadcrumbs::for('post.show', function (BreadcrumbTrail $trail, Post $project): void {
+//     $trail->parent('post.index');
+//     $trail->push('Post Title', route('post.show', $post));
+// });
+
+
+Breadcrumbs::for('post.show', function ($breadcrumbs, $post) {
+    $breadcrumbs->parent('post.index');
+    $breadcrumbs->push('Test Title', route('post.show',$post));
 });
-
-
