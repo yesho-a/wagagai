@@ -22,7 +22,8 @@
 </style>
 
  <div class="container d-flex justify-content-center" style= 'margin-bottom: 3rem;'>
-  {{ Breadcrumbs::render() }}
+  {{ Breadcrumbs::render('post', $post) }}
+
 
       <div class="card shadow-lg p-4" style="width: 80%">
         <div class="card-body ">

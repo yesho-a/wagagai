@@ -30,9 +30,9 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
     $trail->parent('home');
     $trail->push('Blog', route('post.index'));
 });
-Breadcrumbs::for('post', function ($trail, $post) {
-    $trail->parent('blog');
-    $trail->push($post->title, route('post', $post));
+Breadcrumbs::for('post.show', function ($trail, $post) {
+    $trail->parent('post.index');
+    $trail->push('Post Title', route('post.show', $post));
 });
 
 
