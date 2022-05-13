@@ -73,3 +73,10 @@ Breadcrumbs::for('roles.index', function (BreadcrumbTrail $trail): void {
     $trail->parent('home');
     $trail->push('Roles', route('roles.index'));
 });
+
+//Home > Roles > Create Role
+Breadcrumbs::for('roles.create', function (BreadcrumbTrail $trail): void {
+    $trail->parent('roles.index');
+    $trail->push('Create Role', route('roles.create'));
+});
+

@@ -5,6 +5,7 @@
       <div class="card">
         <div class="card-body">
           <div class="container" style="padding: 1rem">
+            {{ Breadcrumbs::render() }}
             <div class="row">
                 {!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
               <div class="col">
