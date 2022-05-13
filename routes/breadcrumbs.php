@@ -32,8 +32,3 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
 });
 
 
-Breadcrumbs::for('post.show', function (BreadcrumbTrail $trail, Post $project): void {
-    $trail->parent('post.index');
- 
-    $trail->push($post->name, route('users.show', $post));
-});
