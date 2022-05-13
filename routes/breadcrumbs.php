@@ -48,3 +48,11 @@ Breadcrumbs::for('perm.create', function (BreadcrumbTrail $trail): void {
     $trail->parent('perm.index');
     $trail->push('Create Permission', route('perm.create'));
 });
+
+
+// Home > Permissions > Post Titles > Title
+
+Breadcrumbs::for('perm.edit', function (BreadcrumbTrail $trail, Post $post) {
+    $trail->parent('post.show', $post);
+    $trail->push('Edit Post', route('post.edit', $post));
+});
