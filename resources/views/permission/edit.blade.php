@@ -6,6 +6,8 @@
         <div class="card-body">
           <div class="container" style="padding: 1rem">
             <div class="row">
+              {{ Breadcrumbs::render('perm.edit', $permission) }}
+
               <div class="col">
                 <h1><i class="fa fa-key"></i> Edit {{$permission->name}}</h1>
                 <br />
