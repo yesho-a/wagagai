@@ -62,3 +62,14 @@ Breadcrumbs::for('perm.edit', function ($trail,$permission) {
     $trail->parent('perm.show',$permission);
     $trail->push('Edit Permission', route('perm.edit', $permission));
 });
+
+
+// ROLES BREADCRUMBS
+
+// Home > Roles
+
+
+Breadcrumbs::for('roles.index', function (BreadcrumbTrail $trail): void {
+    $trail->parent('home');
+    $trail->push('Roles', route('roles.index'));
+});

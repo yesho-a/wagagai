@@ -7,6 +7,8 @@
           <div class="container" style="padding: 1rem">
             <div class="row">
               <div class="col">
+                {{ Breadcrumbs::render() }}
+
                 <span style="margin-left: 1rem">
                   <a href="/roles/create" class="btn btn-success" id="user"
                     ><b>Create New Role</b></a
