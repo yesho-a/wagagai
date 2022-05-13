@@ -28,6 +28,7 @@
       <div class="card shadow-lg p-4" style="width: 80%">
         <div class="card-body ">
           {{ Breadcrumbs::render() }}
+
          <span> <h1 class="m-0 p-0"  style="font-size:2em"><strong>{{$post->post_title}}</strong>
           </h1>
           <small style="color: rgb(95, 89, 89)"><i>{{$post->created_at->todatestring()}}</i></small>

@@ -41,7 +41,13 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
 // });
 
 
-Breadcrumbs::for('post.show', function ($breadcrumbs, $post) {
-    $breadcrumbs->parent('post.index');
-    $breadcrumbs->push('Test Title', route('post.show',$post));
+// Breadcrumbs::for('post.show', function ($breadcrumbs,$post) {
+//     $breadcrumbs->parent('post.index');
+//     $breadcrumbs->push($post->post_title, route('post.show',$post));
+// });
+
+Breadcrumbs::for('post.show', function ($trail,$post) {
+    $trail->parent('post.index');
+    $trail->push('Title Here', route('post.show',$post));
 });
+
