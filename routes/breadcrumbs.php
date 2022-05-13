@@ -35,11 +35,8 @@ Breadcrumbs::for('post.show', function ($trail,$post) {
 });
 
 // Home > Blog > Post Titles > Edit
-
-Breadcrumbs::for('post.edit', function ($trail,$post) {
-    $trail->parent('post.show');
-    $trail->push('Edit', route('post.edit',$post));
+Breadcrumbs::for('post.edit', function (BreadcrumbTrail $trail, Post $post) {
+    $trail->parent('post.show', $post);
+    $trail->push('Edit Post', route('post.edit', $post));
 });
-
-
 
