@@ -7,6 +7,10 @@
                 <div class="card-body">
                     <div class="container" style="padding: 1rem;">
                         <div class="row">
+                            {{ Breadcrumbs::render() }}
+                            {{ Breadcrumbs::render('post.edit', $post) }}
+
+
                           <div class="col mr-5 ml-5">
                             <h1> <strong></i>Edit Post</u></strong></h1>
                             {!! Form::open(['action'=>['App\Http\Controllers\PostController@update',$post->id],'method'=>'POST','enctype'=>'multipart/form-data']) !!}
