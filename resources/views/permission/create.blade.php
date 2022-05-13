@@ -5,7 +5,10 @@
       <div class="card">
         <div class="card-body">
           <div class="container" style="padding: 1rem">
+            {{ Breadcrumbs::render() }}
+
             <div class="row">
+
               <div class="col">
                 {!!
                 Form::open(['action'=>'App\Http\Controllers\PermissionController@store','method'=>'POST','enctype'=>'multipart/form-data'])

@@ -7,6 +7,7 @@
           <div class="container" style="padding: 1rem">
             <div class="row">
               <div class="col">
+                {{ Breadcrumbs::render() }}
                 <h2>Permissions</h2>
                 <span>
                   <a href="/perm/create" class="btn btn-success" id="user"

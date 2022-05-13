@@ -41,3 +41,10 @@ Breadcrumbs::for('perm.index', function (BreadcrumbTrail $trail): void {
     $trail->parent('home');
     $trail->push('Permission', route('perm.index'));
 });
+
+//Home > Permissions > Create Permission
+
+Breadcrumbs::for('perm.create', function (BreadcrumbTrail $trail): void {
+    $trail->parent('perm.index');
+    $trail->push('Create Permission', route('perm.create'));
+});
