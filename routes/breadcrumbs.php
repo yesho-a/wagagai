@@ -86,5 +86,11 @@ Breadcrumbs::for('roles.show', function ($trail,$roles) {
     $trail->push($roles->name, route('perm.show', $roles));
 });
 
+// Home > Roles > Role Title > Edit
+Breadcrumbs::for('roles.edit', function ($trail,$roles) {
+    $trail->parent('roles.show',$roles);
+    $trail->push('Edit Role', route('roles.edit', $roles));
+});
+
 
 

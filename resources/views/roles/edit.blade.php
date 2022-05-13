@@ -4,6 +4,8 @@
     <div class="col-md">
       <div class="card">
         <div class="card-body">
+          {{ Breadcrumbs::render('roles.edit', $role) }}
+
           <div class="container" style="padding: 1rem">
             <div class="row">
               <div class="col">
@@ -61,7 +63,7 @@
                     </div>
                   </div>
 
-                  <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
                     <button type="submit" class="btn btn-primary">
                       Submit
                     </button>
