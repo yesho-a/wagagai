@@ -80,3 +80,11 @@ Breadcrumbs::for('roles.create', function (BreadcrumbTrail $trail): void {
     $trail->push('Create Role', route('roles.create'));
 });
 
+// Home > Roles > Role Title
+Breadcrumbs::for('roles.show', function ($trail,$roles) {
+    $trail->parent('roles.index');
+    $trail->push($roles->name, route('perm.show', $roles));
+});
+
+
+
