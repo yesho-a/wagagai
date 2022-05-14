@@ -48,4 +48,7 @@ Route::get('ca/{cat}', [App\Http\Controllers\PostController::class, 'cat']);
 //Route::get('cat', [App\Http\Controllers\PostController::class, 'cat']);
 Route::get('admin', [App\Http\Controllers\PostController::class, 'admin']);
 
+// User routes
+Route::resource('user', App\Http\Controllers\UserController::class);
+
 
