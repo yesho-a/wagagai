@@ -42,7 +42,29 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+
+        ]);
+
+        $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
+
+        $roles = $request['roles']; //Retrieving the roles field
+    //Checking if a role was selected
+        if (isset($roles)) {
+
+            foreach ($roles as $role) {
+            $role_r = Role::where('id', '=', $role)->firstOrFail();            
+            $user->assignRole($role_r); //Assigning role to user
+            }
+        }        
+    //Redirect to the users.index view and display message
+       
+             return redirect('user.index')->with('success','User successfully added');
+
+    
     }
 
     /**
@@ -53,7 +75,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+     
+        $user = User::findOrFail($id);//Get user with specified id
+        $roles = Role::all(); //Get all roles
+        return view('user.edit', compact('user', 'roles')); //pass user and roles data to view
+
     }
 
     /**
@@ -64,7 +90,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+    
+        $user = User::findOrFail($id);//Get user with specified id
+        $roles = Role::all(); //Get all roles
+        return view('user.edit', compact('user', 'roles')); //pass user and roles data to view
+
     }
 
     /**
