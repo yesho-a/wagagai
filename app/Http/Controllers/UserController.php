@@ -106,7 +106,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id); //Get role specified by id
+        //Validate name, email and password fields    
+    
+            $this->validate($request, [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255'],
+            ]);
+            $input = $request->only(['name', 'email']); //Retreive the name, email and password fields
+            $roles = $request['roles']; //Retreive all roles
+            $user->fill($input)->save();
+            if (isset($roles)) {        
+                $user->roles()->sync($roles);  //If one or more role is selected associate user to roles          
+            }        
+            else {
+                $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
+            }
+            return redirect('user')->with('success','User successfully added');
+    
     }
 
     /**
@@ -117,6 +134,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();        
+        return redirect('user')->with('success','User successfully deleted');
+       //
     }
 }
