@@ -53,6 +53,9 @@ class PostController extends Controller
         ->with('categories',$categories)
         ->with('allCategories',$allCategories)
         ->with('cax',$cax);
+
+     
+     
         
     }
 

@@ -22,15 +22,15 @@ Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::resource('post', App\Http\Controllers\PostController::class);
+Route::resource('post', App\Http\Controllers\PostController::class);
 Route::get('/post', [ App\Http\Controllers\PostController::class, 'index'])->name('post.index');
 Route::get('/post/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
 
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/post/{id}/edit', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
-    //Route::get('/post/create',[App\Http\Controllers\PostController::class, 'create'])->name('post.create');
-    Route::resource('post', App\Http\Controllers\PostController::class);
+    Route::get('create',[App\Http\Controllers\PostController::class, 'create'])->name('create');
+    //Route::resource('post', App\Http\Controllers\PostController::class);
     Route::get('/test', [App\Http\Controllers\PostController::class, 'test'])->name('test');
 
 //Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'] )->name('post.create');
