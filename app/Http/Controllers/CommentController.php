@@ -45,15 +45,6 @@ class CommentController extends Controller
         $comment->user_id = auth()->user()->id;
         $post = post::findOrFail($request->get('post_id'));
         $post->comments()->save($comment);
-
-       // $comment->user()->associate($request->user());
-        // if (isset(auth()->user()->id)) {
-        //     $comment->user_id = auth()->user()->id;
-        // } else {
-        //     $comment->user_id = 0;
-        // }
-        // $post = Post::find($request->get('post_id'));
-
       return back();
     
     }
