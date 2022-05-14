@@ -20,8 +20,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        //return view('user.index')->with('user',$user);
-       return $user;
+        return view('user.index')->with('user',$user);
     }
 
     /**
