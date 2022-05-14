@@ -29,8 +29,11 @@ Route::get('/post/{id}', [App\Http\Controllers\PostController::class, 'show'])->
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/post/{id}/edit', [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
-    Route::get('/post/create',[App\Http\Controllers\PostController::class, 'create'])->name('post.create');
-    //Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'] )->name('post.create');
+    //Route::get('/post/create',[App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+    Route::resource('post', App\Http\Controllers\PostController::class);
+    Route::get('/test', [App\Http\Controllers\PostController::class, 'test'])->name('test');
+
+//Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'] )->name('post.create');
 });
 // Allow Access to view post by all - post.index and post.show
 
@@ -39,7 +42,6 @@ Route::resource('roles', App\Http\Controllers\RoleController::class);
 Route::resource('perm', App\Http\Controllers\PermissionController::class);
 Route::get('list','App\Http\Controllers\CategoryController@list');
 Route::get('add','App\Http\Controllers\CategoryController@manageCategory');
-Route::get('/test', [App\Http\Controllers\PostController::class, 'test'])->name('test');
 Route::post('ajax', [App\Http\Controllers\PostController::class, 'ajax']);
 Route::post('add-category',['as'=>'add.category','uses'=>'App\Http\Controllers\CategoryController@addCategory']);
 Route::get('tags/{tag}', [App\Http\Controllers\PostController::class, 'tags']);
