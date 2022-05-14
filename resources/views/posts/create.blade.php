@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                       <strong>Select Category:</strong>
                                       <br/>
-                                      @foreach($allCategories  as $value)
+                                      @foreach($allCategeories  as $value)
                                       <label>{{ Form::checkbox('cat[]', $value->id, false, array('class' => 'name')) }}
                                         {{ $value->title }}</label>
                                   <br/>
