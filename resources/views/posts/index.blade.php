@@ -16,7 +16,7 @@
               <div class="card-body">
                 <a href="/post/{{$post->id}}" id="link"><h5 class="card-title">{{$post->post_title}}</h5></a>
                 <small style="color: lightskyblue"
-                  ><span style="margin-right: 6px">{{$post->created_at->todatestring()}}</span>{{$post->user->name}}</small>
+                  ><span style="margin-right: 6px">{{$post->created_at->todatestring()}}</span></small>
                   <a href="/post/{{$post->id}}" id="excerpt"> <p class="card-text">
                  {{$post->excerpt}}
                 </p>

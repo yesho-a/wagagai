@@ -33,7 +33,7 @@
 
          <span> <h1 class="m-0 p-0"  style="font-size:2em"><strong>{{$post->post_title}}</strong>
           </h1>
-          <small style="color: rgb(95, 89, 89)"><i>{{$post->created_at->todatestring()}}</i></small>
+          <small style="color: rgb(95, 89, 89)">{{$post->created_at->todatestring()}}</small>
 
         </span>
        
