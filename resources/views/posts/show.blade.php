@@ -28,8 +28,7 @@
       <div class="card shadow-lg p-4" style="width: 80%">
         <div class="card-body ">
        
-          {{ Breadcrumbs::render('post.show', $post) }}
-
+         {{ Breadcrumbs::render('display', $post) }} 
 
          <span> <h1 class="m-0 p-0"  style="font-size:2em"><strong>{{$post->post_title}}</strong>
           </h1>

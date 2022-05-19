@@ -20,11 +20,10 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
     $trail->push('Blog', route('post.index'));
 });
 
-//Home > Blog > Post Titles
-Breadcrumbs::for('post.show', function ($trail,$post) {
+// Home > Blog > Post Titles
+Breadcrumbs::for('display', function ($trail,$post) {
     $trail->parent('post.index');
-    //$trail->push($post->post_title, route('post.show',$post));
-    $trail->push(dd($post), route('post.show',$post));
+   $trail->push($post->post_title, route('display',$post));
 });
 
 // Home > Blog > Post Titles > Edit
