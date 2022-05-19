@@ -173,7 +173,7 @@ class PostController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $slug)
+    public function show($id)
     {
         $post = Post::find($id);
         $cat = Category::all();

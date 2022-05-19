@@ -20,11 +20,11 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
     $trail->push('Blog', route('post.index'));
 });
 
-// Home > Blog > Post Titles
-// Breadcrumbs::for('post.show', function ($trail,$post) {
-//     $trail->parent('post.index');
-//     $trail->push($post->post_title, route('post.show',$post));
-// });
+//Home > Blog > Post Titles
+Breadcrumbs::for('post.show', function ($trail,$post) {
+    $trail->parent('post.index');
+    $trail->push($post->post_title, route('post.show',$post));
+});
 
 // Home > Blog > Post Titles > Edit
 Breadcrumbs::for('post.edit', function (BreadcrumbTrail $trail, Post $post) {
