@@ -23,7 +23,7 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
 // Home > Blog > Post Titles
 Breadcrumbs::for('post.show', function ($trail,$post) {
     $trail->parent('post.index');
-    $trail->push($post->post_title, route('post.show',$post));
+   // $trail->push($post->post_title, route('post.show',$post->slug));
 });
 
 // Home > Blog > Post Titles > Edit
