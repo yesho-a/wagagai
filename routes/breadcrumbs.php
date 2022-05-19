@@ -21,9 +21,9 @@ Breadcrumbs::for('post.index', function (BreadcrumbTrail $trail): void {
 });
 
 // Home > Blog > Post Titles
-Breadcrumbs::for('post.show', function ($trail,$post) {
+Breadcrumbs::for('display', function ($trail,$post) {
     $trail->parent('post.index');
-   // $trail->push($post->post_title, route('post.show',$post->slug));
+   $trail->push('Post Title', route('display',$post));
 });
 
 // Home > Blog > Post Titles > Edit
