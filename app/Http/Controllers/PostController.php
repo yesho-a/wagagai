@@ -173,9 +173,10 @@ class PostController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$slug)
     {
-        $post = Post::find($id);
+        //$post = Post::find($id);
+        $post = Post::where('id', $id)->where('slug', $slug)->first();
         $cat = Category::all();
        return view('posts.show')->with('post',$post)->with('cat',$cat);
     }
