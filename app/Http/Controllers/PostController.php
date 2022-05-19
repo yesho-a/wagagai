@@ -178,7 +178,8 @@ class PostController extends Controller
         //$post = Post::find($id);
         $post = Post::where('id', $id)->where('slug', $slug)->first();
         $cat = Category::all();
-       return view('posts.show')->with('post',$post)->with('cat',$cat);
+      // return view('posts.show')->with('post',$post)->with('cat',$cat);
+      return view('posts.show',['post'=>$post,'cat'=>$cat]);
     }
 
     /**
