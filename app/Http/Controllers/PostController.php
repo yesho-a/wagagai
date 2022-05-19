@@ -134,7 +134,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,['post_title'=>'required','post_body'=>'required','slug'=>'required']);    
+        $this->validate($request,['post_title'=>'required','post_body'=>'required']);    
         if($request->hasFile('image')){
             $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
@@ -152,7 +152,7 @@ class PostController extends Controller
         $post = new Post;
         $post->post_title=$request->input('post_title');
         // automatically add slug to the database
-        $post['slug'] = Str::slug($request->post_title);
+       $post['slug'] = Str::slug($request->post_title);
         // end 
         $post->post_body=$request->input('post_body');
         $post['cat'] = $request->input('cat');
@@ -161,7 +161,7 @@ class PostController extends Controller
         $post->save();
         $post->tag($tags);
         $post->save();
-        return redirect('/post/create')->with('success','Post Added');
+        return redirect('/post')->with('success','Post Added');
      
 
     }
