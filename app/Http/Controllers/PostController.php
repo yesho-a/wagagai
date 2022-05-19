@@ -6,6 +6,8 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Comment;
 use App\Models\Category;
+use Illuminate\Support\Str;
+
 
 
 use Auth;
@@ -149,7 +151,9 @@ class PostController extends Controller
         $tags = explode(",", $request->tags);
         $post = new Post;
         $post->post_title=$request->input('post_title');
-
+        // automatically add slug to the database
+        $post['slug'] = Str::slug($request->post_title);
+        // end 
         $post->post_body=$request->input('post_body');
         $post['cat'] = $request->input('cat');
         $post->image=$fileNameToStore;
