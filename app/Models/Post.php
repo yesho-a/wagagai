@@ -36,7 +36,10 @@ class Post extends Model
        return $y.'....';
     }
 
-     
+    public function getRouteKeyName()
+    {
+      return 'slug';
+    }
 
 
 }
