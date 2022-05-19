@@ -132,7 +132,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,['post_title'=>'required','post_body'=>'required']);    
+        $this->validate($request,['post_title'=>'required','post_body'=>'required','slug'=>'required']);    
         if($request->hasFile('image')){
             $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
@@ -149,6 +149,7 @@ class PostController extends Controller
         $tags = explode(",", $request->tags);
         $post = new Post;
         $post->post_title=$request->input('post_title');
+
         $post->post_body=$request->input('post_body');
         $post['cat'] = $request->input('cat');
         $post->image=$fileNameToStore;
