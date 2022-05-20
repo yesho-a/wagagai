@@ -19,56 +19,8 @@
   font-size: 7em;
   letter-spacing: -2px;
 }
-</style>
 
- <div class="container d-flex justify-content-center" style= 'margin-bottom: 3rem;'>
-      <div class="card p-4" style="width: 90%">
-        <div class="card-body ">
-       
-         {{ Breadcrumbs::render('display', $post) }} 
 
-         <span> <h1 class="m-0 p-0"  style="font-size:2em"><strong>{{$post->post_title}}</strong>
-          </h1>
-          <small style="color: rgb(95, 89, 89)">{{$post->created_at->todatestring()}}</small>
-
-        </span>
-       
-            
-
-          <p class="card-text pt-4" style="text-align:justify">
-            <div class="text-center mb-3">
-              <img style="width:90%;height:18rem;" src="{{ asset('storage/images/'.$post->image) }} "alt=" {{$post->image}}">
-              
-          </div>
-            {{$post->post_body}}
-            <hr>
-
-           <b>tags:</b>
-            @if (count($post->tags)>=1)
-
-            <?php
-            foreach($post->tags as $tag) {
-            
-            echo "<a class='btn badge bg-success' href='/tags/$tag->name' style='margin-left:3px' name='test'> $tag->name</a>";
-           
-    
-      
-            }
-           
-              ?> 
-            @else
-           
-            
-            @endif
-  
-     
-
- 
-        <style>
-         body{
-    margin-top:20px;
-    background-color:#e9ebee;
-}
 
 .be-comment-block {
     margin-bottom: 50px !important;
@@ -142,51 +94,49 @@
     padding: 15px 20px 20px 20px;
 }
 
-.form-group.fl_icon .icon {
-    position: absolute;
-    top: 1px;
-    left: 16px;
-    width: 48px;
-    height: 48px;
-    background: #f6f6f7;
-    color: #b5b8c2;
-    text-align: center;
-    line-height: 50px;
-    -webkit-border-top-left-radius: 2px;
-    -webkit-border-bottom-left-radius: 2px;
-    -moz-border-radius-topleft: 2px;
-    -moz-border-radius-bottomleft: 2px;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px;
-}
+</style>
 
-.form-group .form-input {
-    font-size: 13px;
-    line-height: 50px;
-    font-weight: 400;
-    color: #b4b7c1;
-    width: 100%;
-    height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 1px solid #edeff2;
-    border-radius: 3px;
-}
+ <div class="container d-flex justify-content-center" style= 'margin-bottom: 3rem;'>
+      <div class="card p-4" style="width: 90%">
+        <div class="card-body ">
+       
+         {{ Breadcrumbs::render('display', $post) }} 
 
-.form-group.fl_icon .form-input {
-    padding-left: 70px;
-}
+         <span> <h1 class="m-0 p-0"  style="font-size:2em"><strong>{{$post->post_title}}</strong>
+          </h1>
+          <small style="color: rgb(95, 89, 89)">{{$post->created_at->todatestring()}}</small>
 
-.form-group textarea.form-input {
-    height: 150px;
-}
+        </span>
+       
+            
 
+          <p class="card-text pt-4" style="text-align:justify">
+            <div class="text-center mb-3">
+              <img style="width:90%;height:18rem;" src="{{ asset('storage/images/'.$post->image) }} "alt=" {{$post->image}}">
+              
+          </div>
+            {{$post->post_body}}
+            <hr>
 
+           <b>tags:</b>
+            @if (count($post->tags)>=1)
 
-
-
-
-          </style>
+            <?php
+            foreach($post->tags as $tag) {
+            
+            echo "<a class='btn badge bg-success' href='/tags/$tag->name' style='margin-left:3px' name='test'> $tag->name</a>";
+           
+    
+      
+            }
+           
+              ?> 
+            @else
+           
+            
+            @endif
+  
+    
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <div class="container">
         <div class="be-comment-block">
@@ -252,29 +202,7 @@
               </p>
             </div>
           </div>
-          <form class="form-block">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group fl_icon">
-                  <div class="icon"><i class="fa fa-user"></i></div>
-                  <input class="form-input" type="text" placeholder="Your name">
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 fl_icon">
-                <div class="form-group fl_icon">
-                  <div class="icon"><i class="fa fa-envelope-o"></i></div>
-                  <input class="form-input" type="text" placeholder="Your email">
-                </div>
-              </div>
-              <div class="col-xs-12">									
-                <div class="form-group">
-                  <textarea class="form-input" required="" placeholder="Your text"></textarea>
-                </div>
-              </div>
-              <a class="btn btn-primary pull-right">submit</a>
-            </div>
-          </form>
-        </div>
+         
         </div>
       </div>
 
