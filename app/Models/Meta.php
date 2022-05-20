@@ -12,4 +12,9 @@ class Meta extends Model
     public $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = ['meta_title', 'meta_description','meta_keywords'];
+
+    public function post()
+    {
+        return $this->hasOne(Post::class);
+    }
 }

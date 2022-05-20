@@ -41,5 +41,9 @@ class Post extends Model
       return 'slug';
     }
 
+    public function meta()
+    {
+        return $this->belongsTo(Meta::class);
+    }
 
 }
