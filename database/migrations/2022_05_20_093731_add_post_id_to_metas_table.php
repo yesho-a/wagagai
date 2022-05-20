@@ -14,7 +14,7 @@ class AddPostIdToMetasTable extends Migration
     public function up()
     {
         Schema::table('metas', function (Blueprint $table) {
-            //
+            $table->integer('post_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddPostIdToMetasTable extends Migration
     public function down()
     {
         Schema::table('metas', function (Blueprint $table) {
-            //
+            Schema::dropIfExists('metas');
         });
     }
 }
