@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Comment;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use App\Models\Meta;
 
 
 
@@ -37,6 +38,9 @@ class PostController extends Controller
        return view('admin');
     }
 
+    public function meta_index(){
+        return "This is index";
+    }
 
     /**
      * Show the form for creating a new resource.
