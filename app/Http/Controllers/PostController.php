@@ -168,8 +168,8 @@ class PostController extends Controller
         $post->tag($tags);
         $post->save();
 
-        $meta = Meta::create(['meta_title' =>'test one','meta_description'=>'test description'
-    ,'meta_keywords'=>'simon1,anan','post_id'=>$post->id]);
+        $meta = Meta::create(['meta_title' =>$post->post_title,'meta_description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elit ipsum, semper eget diam vel, elementum tristique metus. Vestibulum sit amet venenatis libero, eu aliquet neque. Donec vehicula eros eget molestie tincidunt. Praesent eget tempus orci.'
+    ,'meta_keywords'=>'lorem,morbus,pargasus','post_id'=>$post->id]);
 
         return redirect('/blog')->with('success','Post Added');
      
