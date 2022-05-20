@@ -115,7 +115,8 @@
               <img style="width:90%;height:18rem;" src="{{ asset('storage/images/'.$post->image) }} "alt=" {{$post->image}}">
               
           </div>
-            {{$post->post_body}}
+           
+            {!!$post->post_body!!}
             <hr>
 
            <b>tags:</b>
