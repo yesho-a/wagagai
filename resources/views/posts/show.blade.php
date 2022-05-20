@@ -97,7 +97,7 @@
 </style>
 
  <div class="container d-flex justify-content-center" style= 'margin-bottom: 3rem;'>
-      <div class="card p-4" style="width: 90%">
+      <div class="card p-4" style="width: 80%">
         <div class="card-body ">
        
          {{ Breadcrumbs::render('display', $post) }} 
