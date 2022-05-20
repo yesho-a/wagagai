@@ -171,7 +171,7 @@ class PostController extends Controller
         $meta = Meta::create(['meta_title' =>'test one','meta_description'=>'test description'
     ,'meta_keywords'=>'simon1,anan','post_id'=>$post->id]);
 
-        return redirect('/post')->with('success','Post Added');
+        return redirect('/blog')->with('success','Post Added');
      
 
     }
