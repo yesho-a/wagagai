@@ -11,7 +11,7 @@ class Meta extends Model
     protected $table = 'metas';
     public $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ['meta_title', 'meta_description','meta_keywords'];
+    protected $fillable = ['meta_title', 'meta_description','meta_keywords','post_id'];
 
     public function post()
     {
