@@ -44,8 +44,8 @@
               
           </div>
             {{$post->post_body}}
-           <br>
-           <b><i>tags:</i></b>
+            <hr>
+           <b>tags:</b>
             @if (count($post->tags)>=1)
 
             <?php
