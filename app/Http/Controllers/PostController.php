@@ -184,12 +184,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id,$slug)
+    //public function show($id)
+
     {
         //$post = Post::find($id);
         $post = Post::where('id', $id)->where('slug', $slug)->first();
-        $cat = Category::all();
+       // $meta = Meta::all();
+       // $cat = Category::all();
       // return view('posts.show')->with('post',$post)->with('cat',$cat);
-      return view('posts.show',['post'=>$post,'cat'=>$cat]);
+     return view('posts.show',['post'=>$post,'cat'=>$cat]);
     }
 
     /**
