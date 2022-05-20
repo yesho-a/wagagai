@@ -13,8 +13,9 @@ class Meta extends Model
     public $timestamps = true;
     protected $fillable = ['meta_title', 'meta_description','meta_keywords','post_id'];
 
+ 
     public function post()
     {
-        return $this->hasOne(Post::class);
+        return $this->belongsTo(Post::class);
     }
 }
