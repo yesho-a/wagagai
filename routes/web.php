@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::resource('post', App\Http\Controllers\PostController::class);
 Route::get('blog', [ App\Http\Controllers\PostController::class, 'index'])->name('post.index');
-Route::get('/blog/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('display');
+Route::get('/blog/{id}/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('display');
 Route::get('meta', [ App\Http\Controllers\PostController::class, 'meta_index']);
 
 
