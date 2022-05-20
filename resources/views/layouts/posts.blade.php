@@ -6,8 +6,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{$post->meta->meta_title}}</title>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="description" content="{{$post->meta->meta_description}}">
+    <meta name="keywords" content="{{$post->meta->meta_keywords}}">
+
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
@@ -17,6 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom2.css') }}" rel="stylesheet">
+
 
 </head>
 <body>
@@ -42,6 +47,11 @@
                           <li class="nav-item d-none d-sm-inline-block">
                             <a href="#" class="nav-link">Contact</a>
                           </li>
+                          <li class="nav-item d-none d-sm-inline-block">
+                            <a href="#" class="nav-link">
+                            </a>
+                          </li>
+                          
                     </ul>
 
                     <!-- Right Side Of Navbar -->
