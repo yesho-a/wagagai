@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4 text-sm " >
+<aside class="main-sidebar sidebar-dark-primary elevation-4" >
   <!-- Brand Logo -->
    
   <a href="#" class="brand-link logo-switch" style="background-color: white" >
