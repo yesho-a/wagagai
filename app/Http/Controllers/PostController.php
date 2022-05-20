@@ -39,7 +39,9 @@ class PostController extends Controller
     }
 
     public function meta_index(){
-        return "This is index";
+
+        $meta = Meta::all();
+        return $meta;
     }
 
     /**
@@ -165,6 +167,10 @@ class PostController extends Controller
         $post->save();
         $post->tag($tags);
         $post->save();
+
+        $meta = Meta::create(['meta_title' =>'test one','meta_description'=>'test description'
+    ,'meta_keywords'=>'simon1,anan','post_id'=>$post->id]);
+
         return redirect('/post')->with('success','Post Added');
      
 
