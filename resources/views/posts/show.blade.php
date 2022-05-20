@@ -141,7 +141,9 @@
         <div class="container">
         <div class="be-comment-block">
           <h1 class="comments-title">Comments (3)</h1>
+
           <div class="be-comment">
+          
             <div class="be-img-comment">	
               <a href="blog-detail-2.html">
                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="be-ava-comment">
@@ -202,15 +204,14 @@
               </p>
             </div>
           </div>
-          <form method="post" action="{{ route('comment.add') }}">
-            @csrf
-            <div class="form-group">
-                <input type="text" name="comment" class="form-control" />
-                <input type="hidden" name="post_id" value="{{ $post->id }}" />
-            </div>
-            <div class="form-group" style="padding-top: 1rem">
-                <input type="submit" class="btn btn-success" value="Add Comment" />
-            </div>
+        <form method="post" action="{{ route('comment.add') }}">
+          @csrf
+          <div class="form-group" style="padding-bottom: 1rem">
+            <input type="hidden" name="post_id" value="{{ $post->id }}" />
+            <label for="comment">Enter Your Comment</label>
+            <textarea name="comment" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-info">Send</button>
         </form>
         </div>
        
